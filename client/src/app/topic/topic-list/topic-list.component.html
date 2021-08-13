@@ -1,0 +1,58 @@
+<mat-tab-group data-cy="tabgroup" id="bodylist" mat-align-tabs="start" (selectedTabChange)="tabClick($event)" class="tabcontainer">
+    <mat-tab id="tab" label="new">
+
+        <div style="display: flex; justify-content: space-between;">
+            <mat-form-field>
+                <mat-label data-cy="filtersearch">Search</mat-label>
+                <input matInput value="" (keyup)="this.filterTopic$.next($event.target.value)" (keyup)="filter()">
+            </mat-form-field>
+            <button data-cy="newtopicbtn" mat-raised-button id="openbtn" style="background-color: black; color:white; margin-right: 35px; margin-top: 5px; margin-bottom: 5px;">
+                <a style="width: 5vw; height: 5vw;color: rgb(255, 255, 255); text-decoration: none;" routerLink="/topic/new-topic"> new topic </a>
+            </button>
+        </div>
+        <cdk-virtual-scroll-viewport itemSize="200" class="container">
+            <div *ngIf="(topics$ | async) as topics; else loadingError">
+                <div *cdkVirtualFor="let topic of (topics | reverse)">
+                    <app-topic class="topic" [topic]="topic" data-cy="topicCard"></app-topic>
+                </div>
+            </div>
+            <ng-template #loadingError>
+                <span *ngIf="errorMessage; else loading"> {{ errorMessage }}</span>
+                <ng-template #loading>
+                    <mat-spinner style="color: black;"></mat-spinner>
+                </ng-template>
+            </ng-template>
+
+        </cdk-virtual-scroll-viewport>
+
+
+
+    </mat-tab>
+    <mat-tab id="tab" label="most replies">
+        <div style="display: flex; justify-content: space-between;">
+            <mat-form-field>
+                <mat-label>Search</mat-label>
+                <input matInput placeholder="" value="" (keyup)="this.filterTopic$.next($event.target.value)" (keyup)="filter()">
+            </mat-form-field>
+            <button mat-raised-button id="openbtn"
+                style="background-color: black; color:white; margin-right: 35px; margin-top: 5px; margin-bottom: 5px;"><a
+                    style="color: rgb(255, 255, 255); text-decoration: none;" routerLink="/topic/new-topic">new
+                    topic</a>
+            </button>
+        </div>
+        <cdk-virtual-scroll-viewport itemSize="200" class="container">
+            <div *ngIf="(topics$ | async) as topics; else loadingError">
+                <div *ngFor="let topic of (topics)">
+                    <app-topic class="topic" [topic]="topic"></app-topic>
+                </div>
+            </div>
+            <ng-template #loadingError>
+                <span *ngIf="errorMessage; else loading"> {{ errorMessage }}</span>
+                <ng-template #loading>
+                    <mat-spinner style="color: black;"></mat-spinner>
+                </ng-template>
+            </ng-template>
+
+        </cdk-virtual-scroll-viewport>
+    </mat-tab>
+</mat-tab-group>

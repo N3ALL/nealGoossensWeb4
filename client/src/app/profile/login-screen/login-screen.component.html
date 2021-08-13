@@ -1,0 +1,46 @@
+<div id="loginscreenbody">
+    
+
+    <div id="fields">
+        <form [formGroup]="user" (ngSubmit)="onSubmit()">
+        
+          <mat-form-field appearance="fill" id="emailfield">
+            <input
+              matInput
+              placeholder="email"
+              aria-label="email"
+              data-cy="login-email"
+              formControlName="username"
+            />
+          </mat-form-field>
+        
+        <mat-form-field appearance="fill" id="passwordfield">
+            <input
+              type="password"
+              matInput
+              placeholder="password"
+              aria-label="password"
+              data-cy="login-password"
+              formControlName="password"
+            />
+          </mat-form-field>
+        <button mat-raised-button id="loginbtn" type="submit">login</button>
+        <div style="display: flex; justify-content: center;">
+          <p style="color: red;"> {{ errorMessage }}</p>
+        </div>
+        
+        <div id="registerlinkwrapper">
+            <a id="registerlink" routerLink="/user/register">no account? register now</a>
+        </div>
+    </form>
+    
+    </div>
+
+
+</div>
+<!-- <mat-form-field appearance="fill">
+  <mat-label>Snack bar duration (seconds)</mat-label>
+  <input type="number" [(ngModel)]="durationInSeconds" matInput>
+</mat-form-field> -->
+
+

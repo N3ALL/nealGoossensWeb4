@@ -1,0 +1,27 @@
+
+<mat-card style="margin-top: 15px; ">
+    <mat-card style="margin-bottom: 15px; background-color: rgb(255,254,254);">
+        <mat-card-content id="descriptiontext" style="overflow-wrap: normal; 
+        word-wrap: break-word;
+        word-break: break-all;
+        white-space: normal;
+        ">
+            {{ reply.description }}
+        </mat-card-content>
+    </mat-card>
+    <div style="display: flex; flex-direction: row; margin-left: 1px;">
+        <mat-card-subtitle id="usertext" style="margin-right: 15px; align-self: center; ">
+            <a style="text-decoration: none; color: black;" routerLink="/user/guestProfile/{{ reply.id }}/true">
+                {{ reply.user }}
+            </a>
+        </mat-card-subtitle>
+        
+        <button mat-raised-button (click)="delete()" id="openbtn" style="margin-left: auto; background-color: black; color:white; margin-right: 35px;">
+            delete 
+       </button>
+    </div>
+    <mat-card-subtitle id="date" style=" padding-top: 5px; align-self: center;">
+        {{ dateFormat() }}
+    </mat-card-subtitle>
+        
+</mat-card>

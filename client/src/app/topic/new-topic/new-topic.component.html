@@ -1,0 +1,16 @@
+<form [formGroup]="TopicForm" (ngSubmit)="onSubmit()" class="example-form" style="display: flex; justify-content: center; flex-wrap: wrap; flex-direction: column;">
+  <mat-form-field class="example-full-width" appearance="fill" style="margin-left: 20%;margin-right: 20%; margin-top: 20px;">
+    <mat-label>Title</mat-label>
+    <input formControlName="title" matInput placeholder="" value="">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill" style="margin-left: 20%;margin-right: 20%;">
+    <mat-label>Description</mat-label>
+    <textarea formControlName="description" matInput placeholder="still empty" style=" height:250px"></textarea>
+    <button mat-raised-button id="openbtn" type="submit" style="height: 50%; margin-top:15px">add post</button>
+  </mat-form-field>
+  <div style="display: flex; justify-content: center;">
+    <p> {{ errorMessage }} </p>
+  </div>
+  
+</form>

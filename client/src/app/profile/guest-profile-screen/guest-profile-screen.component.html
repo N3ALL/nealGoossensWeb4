@@ -1,0 +1,23 @@
+<mat-card style="margin-top: 25px;">
+    <mat-card-title>{{ profile?.username }}</mat-card-title>
+    <mat-card-subtitle>{{ profile?.emailAdress}}</mat-card-subtitle>
+</mat-card>
+<mat-expansion-panel hideToggle style="margin-top: 35px;">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            Topics
+        </mat-panel-title>
+        <mat-panel-description>
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div *ngIf="(topics$ | async) as topics;">
+      <div *ngFor="let topic of (topics | reverse)">
+        <app-userTopics [topic]="topic" [owner]= false ></app-userTopics>
+    </div>
+      <!-- <div *ngFor="let topic of (topics$ | reverse) | async">
+          <app-userTopics [topic]="topic"></app-userTopics>
+      </div> -->
+    </div>
+  
+</mat-expansion-panel>

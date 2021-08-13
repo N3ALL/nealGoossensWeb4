@@ -1,0 +1,53 @@
+#topicCard{
+    border-radius: 1rem;
+    margin: 0.5%;
+    
+    
+    
+} 
+
+#topicCardContent{
+    max-width: 100%;
+    
+} 
+
+#description{
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    overflow-wrap: normal;
+    border-bottom: solid;
+    border-width: thin;
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: normal;
+    
+} 
+
+#descriptionwrapper{
+    display: flexbox;
+    flex-wrap: wrap;
+    background-color: rgb(255, 255, 255);
+    border-radius: 0.5rem;
+    max-width: inherit;
+    margin: 0.5%;
+}
+#repliesicon{
+    margin-left: 1%;
+    
+}
+#actions {
+    display: flex;
+    justify-content: center;
+    margin: 0.5%;
+    max-width: inherit;
+    
+    justify-content: space-between;
+    width: 98.5%;
+}
+#openbtn{
+    background-color: rgba(0, 0, 0, 0.2);
+    float: inline-end;
+}
+

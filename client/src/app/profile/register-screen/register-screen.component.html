@@ -1,0 +1,58 @@
+<div id="loginscreenbody">
+  <form [formGroup]="user" id="registerform" (ngSubmit)="onSubmit()">
+    <div id="fields">
+
+      <mat-form-field class="field" appearance="fill" id="emailfield"> 
+        <mat-label>Enter your email</mat-label> 
+        <input formControlName="email" class="inputfield" id="emailinput" matInput placeholder="pat@example.com"  required>
+      </mat-form-field>
+      <mat-form-field class="field" appearance="fill" id="passwordfield" >
+        <mat-label>Enter your password</mat-label>  
+        <input formControlName="password" class="inputfield" matInput placeholder="password" matInput [type]="'password'" required>
+        
+      </mat-form-field>
+
+      <mat-form-field class="field" appearance="fill" id="passwordfield" required>
+        <mat-label>Repeat your password</mat-label>
+        <input formControlName="confirmPassword" class="inputfield" matInput placeholder="password" matInput [type]="'password'" required>
+      </mat-form-field>
+      <div style="display: flex; justify-content: center;">
+        <p style="color: red;"> {{ errorMessagePassword }}</p>
+      </div>
+      
+      <mat-form-field class="field" appearance="fill">
+        <mat-label>first name</mat-label>
+        <input formControlName="firstname" class="inputfield" matInput required>
+        
+      </mat-form-field>
+
+      <mat-form-field class="field" appearance="fill" >
+        <mat-label>last name</mat-label>
+        <input formControlName="lastname" class="inputfield" matInput required>
+        
+      </mat-form-field>
+
+      <mat-form-field class="field" appearance="fill">
+        <mat-label>institution</mat-label>
+        <input formControlName="institution" class="inputfield" matInput>
+        
+      </mat-form-field>
+
+      <mat-form-field class="field" appearance="fill">
+        <mat-label>field of study</mat-label>
+        <input formControlName="fieldofstudy" class="inputfield" matInput>
+      </mat-form-field>
+
+      <mat-form-field class="field" appearance="fill">
+        <mat-label>username</mat-label>
+        <input formControlName="username" class="inputfield" matInput required>
+        
+      </mat-form-field>
+      <div style="display: flex; justify-content: center;">
+        <p style="color: red;"> {{ errorMessage }}</p>
+      </div>
+      <button mat-raised-button id="loginbtn" type="submit">register</button>
+
+    </div>
+  </form>
+</div>

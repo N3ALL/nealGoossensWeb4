@@ -1,0 +1,38 @@
+<!--
+werkt
+<p> {{ topic.title }} </p>
+<p> {{ topic.postedOn }} </p>
+<p> {{ topic.description }} </p>
+-->
+
+<mat-card class="card" id="topicCard">
+    <mat-card-header>
+      <mat-card-title id="title"> {{ topic?.title }} </mat-card-title>
+      <mat-card-subtitle id="author"><a style="text-decoration: none; color: black;" routerLink="/user/guestProfile/{{ topic.id }}/false">  {{ topic?.postedBy }}  </a></mat-card-subtitle>
+      <mat-card-subtitle id="date"> {{ dateFormat() }} </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content id="topicCardContent">
+      <div id="descriptionwrapper">
+        <p id="description">
+          {{ topic?.description }}
+        </p>
+      </div>
+      
+    </mat-card-content>
+    <mat-card-actions id="actions">
+      <p>
+        <mat-icon matBadge=" {{ topic.numberOfViews }}" matBadgeColor="warn" id="repliesicon">message</mat-icon>
+          <!-- Include text description of the icon's meaning for screen-readers -->
+          <span class="cdk-visually-hidden">
+            number of views
+          </span>
+      </p>
+      <p>
+        <button mat-raised-button id="openbtn" style="background-color: black; color: white">
+          <a style="color: rgb(255, 255, 255); text-decoration: none;" routerLink="/topic/details/{{ topic.id }}"> 
+            open
+          </a>
+        </button>
+      </p>
+    </mat-card-actions>
+  </mat-card>

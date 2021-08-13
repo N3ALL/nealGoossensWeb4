@@ -1,0 +1,73 @@
+<div style="height: 89vh;">
+  <h1>My Profile</h1>
+  <div class="userInformationBox" style="margin-top: 15px;">
+      <form [formGroup]="user">
+          <div style="width: 100%; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: space-between;">
+              <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>username</mat-label>
+                  <input formControlName="username" matInput value="{{ profile?.username }}">
+                </mat-form-field>
+                <button mat-raised-button (click)=logOut() style="width: 100px; background-color: black; color:white; height: 60px;"> log out </button>
+          </div>
+          <table class="example-full-width" cellspacing="0"><tr>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>lastname</mat-label>
+              <input formControlName="lastname" matInput value="{{ profile?.name}}">
+            </mat-form-field></td>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>firstname</mat-label>
+              <input formControlName="firstname" matInput value="{{ profile?.surname }}">
+            </mat-form-field></td>
+          </tr></table>
+          <table class="example-full-width" cellspacing="0"><tr>
+              <td><mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Institution</mat-label>
+                <input formControlName="institution" matInput value="{{ profile?.institution}}">
+              </mat-form-field></td>
+              <td><mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Field Of Study</mat-label>
+                <input formControlName="fieldOfStudy" matInput value="{{ profile?.fieldOfStudy }}">
+              </mat-form-field></td>
+            </tr></table>
+        <div style="display: flex; width: 100%; flex-direction: row; flex-wrap: nowrap; justify-content: space-between;">
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>emailAddress</mat-label>
+                <input formControlName="emailAdress" matInput value="{{ profile?.emailAdress }}">
+              </mat-form-field>
+              <button *ngIf="showButton" (click)="onSubmit()" type="submit" mat-raised-button style="width: 100px; background-color: black; color:white; height: 60px;">save</button>
+              <button (click)="editButton()" mat-raised-button style="width: 100px; background-color: black; color:white; height: 60px;">edit</button>
+        </div>
+        <p>{{ errorMessage }}</p>
+        </form>
+  </div>     
+  <mat-expansion-panel hideToggle style="margin-top: 35px;">
+      <mat-expansion-panel-header>
+          <mat-panel-title>
+              My Topics
+          </mat-panel-title>
+          <mat-panel-description>
+          </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>{{ emptyList }}</p>
+      <div *ngIf="(topics$ | async) as topics;">
+        <div *ngFor="let topic of (topics | reverse)">
+          <app-userTopics [topic]="topic" [owner]= true ></app-userTopics>
+      </div>
+        <!-- <div *ngFor="let topic of (topics$ | reverse) | async">
+            <app-userTopics [topic]="topic"></app-userTopics>
+        </div> -->
+      </div>
+    
+  </mat-expansion-panel>
+  <!-- <mat-expansion-panel hideToggle style="margin-top: 15px;">
+      <mat-expansion-panel-header>
+          <mat-panel-title>
+              My Replies
+          </mat-panel-title>
+          <mat-panel-description>
+              count?
+          </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>This is the primary content of the panel.</p>
+  </mat-expansion-panel> -->
+</div>

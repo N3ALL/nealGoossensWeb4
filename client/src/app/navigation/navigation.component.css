@@ -1,0 +1,70 @@
+.sidenav-container {
+  height: 100%;
+  
+}
+.sidenav {
+  width: 200px;
+  
+}
+
+.sidenav .mat-toolbar {
+  background: black;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: black;
+  
+}
+.navElement{
+ margin-right: 25%;
+ float: right;
+ font-weight: lighter;
+ 
+}
+.respnav:hover {
+  
+}
+
+/* #profile{
+  display: none;
+  float: right;
+  width: 30%;
+} */
+#titlehomescreen{
+  
+  color:white;
+  text-decoration: none;
+}
+#container{
+  background-color: black;
+}
+#navwrapper{
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  width: 100%;
+  
+}
+
+#login{
+  color: white;
+  text-decoration: none;
+  font-weight: 400;
+}
+@media (min-width: 600px){
+  .sidenav {
+    display: none;
+  }
+  #title{
+    margin-left: 50px;
+  }
+  #profile{
+    margin-right: 50px;
+  }
+  
+}

@@ -1,0 +1,45 @@
+  <div id="container">
+    <mat-sidenav-container class="sidenav-container">
+      <mat-sidenav #drawer class="sidenav" fixedInViewport
+          [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+          [mode]="(isHandset$ | async) ? 'over' : 'side'"
+          [opened]="(isHandset$ | async) === false">
+        <mat-toolbar>Menu</mat-toolbar>
+        <mat-nav-list class="respnav">
+          <a *ngIf="isLoggedIn(); else LoggedOut" class="navElement" id="login" routerLink="user/profile">profile</a>
+                <ng-template #LoggedOut>
+                  <a class="navElement" id="login" routerLink="user/login">login</a>
+                </ng-template>
+          
+        </mat-nav-list>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <mat-toolbar id ="navBalk" color="primary">
+          <button id="buttonResponsive"
+            type="button"
+            aria-label="Toggle sidenav"
+            mat-icon-button
+            (click)="drawer.toggle()"
+            *ngIf="isHandset$ | async">
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+          </button>
+          <div id="navwrapper">
+            <div id="title">
+              <a id="titlehomescreen" routerLink="topic/list">home</a>
+            </div>
+            <div id="profile">
+                <a *ngIf="isLoggedIn(); else LoggedOut" class="navElement" id="login" routerLink="user/profile">profile</a>
+                <ng-template #LoggedOut>
+                  <a class="navElement" id="login" routerLink="user/login">login</a>
+                </ng-template>
+            </div>
+          </div>
+          <span></span>
+        </mat-toolbar>
+      <ng-content></ng-content>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+  
+  
+  

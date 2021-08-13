@@ -1,0 +1,10 @@
+
+<div *ngIf="(replies$ | async | reverse) as replies; else loading">
+    <div *ngFor = "let reply of replies">
+        <app-reply [reply] = "reply"></app-reply>
+    </div>
+</div>
+<ng-template #loading>
+    <mat-spinner style="color: black;"></mat-spinner>
+</ng-template>
+    

@@ -1,0 +1,47 @@
+<div style="display: flex; flex-direction: column; flex-wrap: nowrap;">
+<mat-card class="card" id="topicCard" style="margin-top: 25px;">
+    <mat-card-header>
+      <mat-card-title id="title"> {{ topic?.title }} </mat-card-title>
+      <mat-card-subtitle id="author"><a style="text-decoration: none; color: black;" routerLink="/user/guestProfile/{{ topic?.id }}/false"> {{ topic?.postedBy }} </a></mat-card-subtitle>
+      <mat-card-subtitle id="date"> {{ dateFormat() }} </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content id="topicCardContent">
+      <div id="descriptionwrapper">
+        <p id="description" style="margin-left: 15px;">
+          {{ topic?.description }}
+        </p>
+      </div>
+      
+    </mat-card-content>
+    <mat-card-actions id="actions">
+      <p>
+        <mat-icon matBadge=" {{ topic?.numberOfViews }}"  style="margin-left: 15px;" matBadgeColor="warn" id="repliesicon">message</mat-icon>
+          <!-- Include text description of the icon's meaning for screen-readers -->
+          <span class="cdk-visually-hidden">
+            number of views
+          </span>
+      </p>
+      <!-- <p>
+        <button mat-raised-button id="openbtn">reply</button>
+      </p> -->
+    </mat-card-actions>
+  </mat-card>
+    <form [formGroup]="comment" (ngSubmit)="onSubmit()">
+      <div id="replyfields" style="margin-top:25px; margin-bottom: 25px; display: flex; flex-wrap: wrap;">
+        <mat-form-field  appearance="fill" id="inputfield" class="example-full-width" style="margin-bottom:45px;height: 120px;">
+          <mat-label>comment</mat-label>
+          <textarea formControlName="comment" matInput placeholder="" style="height: 100px;"></textarea>
+          <button mat-raised-button id="openbtn" type="submit" style="height: 50%; margin-top:15px">add comment</button>
+        </mat-form-field>
+          
+      </div>
+    </form>
+    <p> {{ errorMessage }}</p>
+    
+    
+      <div>
+        <app-reply-list *ngIf="topic" [id]="topic.id" style="margin-top: 30px;"></app-reply-list>
+      </div>
+    
+    
+</div>

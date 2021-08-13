@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/5b5fa176-d975-4bec-8e8e-f7731f0b09ef/resourceGroups/Web4-TaskForum/providers/Microsoft.Web/sites/ForumNealGoossens",
+    "appService.deploySubpath": "Api\\bin\\Debug\\net5.0"
+}

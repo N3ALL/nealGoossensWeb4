@@ -1,0 +1,40 @@
+#loginscreenbody{
+    height: 50rem;
+    width: 100%;
+    justify-content: center;
+    
+}
+#fields{
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    display: flexbox;
+    flex-direction: column;
+    
+}
+#emailfield{
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 50%;
+    
+}
+#passwordfield{
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 50%;
+    
+}
+.field{
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 50%;
+    
+}
+#loginbtn{
+    margin-left: 40%;
+    margin-right: 40%;
+    width: 20%;
+    margin-bottom: 5%;
+    
+}

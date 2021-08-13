@@ -1,0 +1,41 @@
+<!-- <p>{{ profile?.title }}</p>
+<p>{{ dateFormat() }}</p>
+<p>test</p> -->
+<mat-card class="card" style="margin-bottom: 15px;">
+    <mat-card-header>
+        <div style="display: flex; flex-direction: row; flex-wrap: nowrap;  width: 100%; justify-content: space-between;">
+            <div style="display: flex; flex-direction: row; flex-wrap: nowrap;">
+                <p style="align-self: center;">{{ dateFormat() }}</p>
+                <p style="align-self: center; font-weight: bold; font-size: large; margin-left: 35px;">{{ topic.title }}</p>
+                <!-- <mat-card-subtitle style="align-self: center;"> {{ dateFormat() }} </mat-card-subtitle>
+                <mat-card-title style="align-self: center; margin-left: 25px;"> {{ topic.title }} </mat-card-title>
+                <p>
+                    
+                  </p> -->
+            </div>
+            <div style="display: flex; flex-direction: row; flex-wrap: nowrap; width: 100%; align-content: flex-end;  justify-content: flex-end;">
+                <mat-icon matBadge=" {{ topic.numberOfViews }}" matBadgeColor="warn" style="align-self: center;">message</mat-icon>
+                <span class="cdk-visually-hidden">
+                  number of views
+                </span>
+                  <p>
+                    <button mat-raised-button  style="background-color: black; color: white; margin-left:20px;">
+                      <a style=" color: rgb(255, 255, 255); text-decoration: none;"routerLink="/topic/details/{{ topic.id }}"> 
+                        open
+                      </a>
+                    </button>
+                  </p>
+                  <p *ngIf="owner == true">
+                    <button mat-raised-button  style="background-color: rgb(255, 0, 0); color: rgb(255, 255, 255); margin-left:20px;">
+                      <a style=" color: rgb(255, 255, 255); text-decoration: none;" (click)="deleteTopic()"> 
+                        delete
+                      </a>
+                    </button>
+                  </p>
+                  
+            </div>
+        </div>
+        
+    </mat-card-header>
+  </mat-card>
+  
