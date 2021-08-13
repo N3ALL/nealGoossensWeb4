@@ -12,7 +12,7 @@
         </div>
         <cdk-virtual-scroll-viewport itemSize="200" class="container">
             <div *ngIf="(topics$ | async) as topics; else loadingError">
-                <div *cdkVirtualFor="let topic of (topics | reverse)">
+                <div *ngFor="let topic of (topics | reverse)">
                     <app-topic class="topic" [topic]="topic" data-cy="topicCard"></app-topic>
                 </div>
             </div>
